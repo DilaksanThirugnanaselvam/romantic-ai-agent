@@ -1,9 +1,11 @@
 import streamlit as st
 from groq import Groq
 import os
+from dotenv import load_dotenv
 
-# --- CONFIG ---
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", API_KEY)  # Use environment variable or replace
+# --- Load Environment Variables ---
+load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = "llama-3.3-70b-versatile"  # Model you want to use
 
 # Initialize Groq client
@@ -17,7 +19,6 @@ def love_ai_agent(prompt):
     Be kind, supportive, and emotionally intelligent.
     Use attractive and relevant emojis in your responses to make them more engaging.
     """
-
     try:
         completion = client.chat.completions.create(
             model=GROQ_MODEL,
@@ -28,7 +29,7 @@ def love_ai_agent(prompt):
             temperature=0.7,
             max_tokens=500,
             top_p=1,
-            stream=False,  # Set to False for a single response
+            stream=False,
             stop=None,
         )
         return completion.choices[0].message.content.strip()
@@ -43,7 +44,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-color: #ffe6e6;  /* Light rose background */
+        background-color: #ffe6e6;
     }
     .stTextInput input {
         animation: pulse 2s infinite;
@@ -54,10 +55,10 @@ st.markdown(
         100% { transform: scale(1); }
     }
     .stTextInput input::placeholder {
-        color: red;  /* Red heart symbol in placeholder */
+        color: red;
     }
     h1 {
-        color: red;  /* Red title color */
+        color: red;
         animation: glow 2s infinite alternate;
     }
     @keyframes glow {
@@ -73,26 +74,10 @@ st.markdown(
         50% { transform: translateY(-20px); }
         100% { transform: translateY(0); }
     }
-    .sticker-1 {
-        top: 10%;
-        left: 5%;
-        font-size: 50px;
-    }
-    .sticker-2 {
-        top: 20%;
-        right: 5%;
-        font-size: 50px;
-    }
-    .sticker-3 {
-        bottom: 10%;
-        left: 10%;
-        font-size: 50px;
-    }
-    .sticker-4 {
-        bottom: 20%;
-        right: 10%;
-        font-size: 50px;
-    }
+    .sticker-1 { top: 10%; left: 5%; font-size: 50px; }
+    .sticker-2 { top: 20%; right: 5%; font-size: 50px; }
+    .sticker-3 { bottom: 10%; left: 10%; font-size: 50px; }
+    .sticker-4 { bottom: 20%; right: 10%; font-size: 50px; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -115,10 +100,8 @@ st.markdown("""
 Welcome to LoveAI! Ask for love messages, poems, stress busters, and heartwarming words.
 """)
 
-# Input box with heart symbol placeholder
 user_input = st.text_input("Tell me how you feel or what you want:", "", placeholder="💖 Type your message here...")
 
-# Generate button
 if st.button("Send Love 💌"):
     if user_input:
         with st.spinner("LoveAI is thinking... 💭"):
@@ -127,6 +110,5 @@ if st.button("Send Love 💌"):
     else:
         st.warning("Please type something for LoveAI!")
 
-# Footer
 st.markdown("---")
 st.caption("Made with ❤️ by Dilaksan Thirugnanaselvam")
