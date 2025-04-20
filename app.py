@@ -3,7 +3,7 @@ from groq import Groq
 import os
 
 # --- CONFIG ---
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "API_KEY")  # Use environment variable or replace
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", API_KEY)  # Use environment variable or replace
 GROQ_MODEL = "llama-3.3-70b-versatile"  # Model you want to use
 
 # Initialize Groq client
