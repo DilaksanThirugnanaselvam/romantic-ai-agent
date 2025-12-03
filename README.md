@@ -4,6 +4,8 @@ A romantic chatbot designed to spread **love, positivity, and emotional support*
 
 Built using **powerful Language Models (LLMs)**, Love AI Agent generates poetic love messages, romantic advice, and stress-relieving words of kindness. 🌹✨ With vibrant animations and glowing text, it delivers an enchanting user experience that truly touches the heart! 🌸
 
+https://github.com/user-attachments/assets/ea6f43ff-34d1-415a-9713-8db43cdaa8e0
+
 ---
 
 ## Features
@@ -23,9 +25,7 @@ Built using **powerful Language Models (LLMs)**, Love AI Agent generates poetic 
 
 ---
 
-## Demo
 
-A live demo of Love AI Agent (if hosted) or screenshots/gifs of the UI can be added here.
 
 ---
 
