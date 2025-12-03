@@ -27,8 +27,3 @@ https://github.com/user-attachments/assets/ea6f43ff-34d1-415a-9713-8db43cdaa8e0
 
 
 
----
-
-
-```bash
-git clone https://github.com/yourusername/love-ai-agent.git
